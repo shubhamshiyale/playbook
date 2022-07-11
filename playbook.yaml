@@ -1,0 +1,23 @@
+--- # ansible-playbook for .war deploy on host
+
+- hosts: all
+  connection: ssh
+  user: shubham
+  become: yes
+  gather_facts: yes
+
+
+  tasks:
+    - name: install git 
+      action: yum pkg="git" state="present"
+
+    - name: install maven
+      action: yum pkg="maven" state="present"
+
+    - name: install docker
+      action: yum pkg="docker" state="present"
+      notify: start docker
+
+  handlers: 
+    - name: start docker
+      action: service name="docker" state="started"
