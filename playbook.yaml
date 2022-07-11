@@ -17,6 +17,10 @@
     - name: install docker
       action: yum pkg="docker" state="present"
       notify: start docker
+      
+    - name: copy
+      action: copy src="/home/shubham/.jenkins/workspace/project3/gameoflife-web/target/*.war" dest="/mnt/package"
+
 
   handlers: 
     - name: start docker
