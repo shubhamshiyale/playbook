@@ -2,7 +2,7 @@
 
 - hosts: all
   connection: ssh
-  user: shubham
+  user: amruta
   become: yes
   gather_facts: yes
 
